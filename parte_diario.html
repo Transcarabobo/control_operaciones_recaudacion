@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8">
+	<title>Parte Diario</title>
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="css/main.css">
+	<script src="js/jquery-2.2.4.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+
+</head>
+<body>
+	<nav class="navbar navbar-inverse">
+	  <div class="container-fluid">
+	    <!-- Brand and toggle get grouped for better mobile display -->
+	    <div class="navbar-header">
+	      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+	        <span class="sr-only">Toggle navigation</span>
+	        <span class="icon-bar"></span>
+	        <span class="icon-bar"></span>
+	        <span class="icon-bar"></span>
+	      </button>
+	      <div><a href="principal.html"><img src="img/transcarabobo_blanco.png" class="right" width="35%;" ></a></div>
+	      <!--<a class="navbar-brand" href="#">Menú Principal</a>-->
+	    </div>
+
+	    <!-- Collect the nav links, forms, and other content for toggling -->
+	    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+	      <ul class="nav navbar-nav navbar-right letra-menu">
+	        <li class="dropdown">
+	          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Registro<span class="caret"></span></a>
+	          <ul class="dropdown-menu">
+	            <li><a href="lista_operador.html">Operador</a></li>
+	            <li><a href="lista_ruta.html">Rutas</a></li>
+	            <li role="separator" class="divider"></li>
+	            <li><a href="parte_diario.html">Parte</a></li>
+	          </ul>
+	        </li>
+	        <li><a href="consulta.html">Consulta</a></li>
+	        <li><a href="index.html">Salir</a></li>
+	      </ul>
+	    </div><!-- /.navbar-collapse -->
+	  </div><!-- /.container-fluid -->
+	</nav>
+
+	<br><br>
+	<h1 class="text-center">Parte Diario</h1>
+
+	<div class="container">
+	
+	<div class="row col-xs-10 col-md-6 col-xs-offset-1 col-md-offset-3">
+	<br>
+	<br>
+	<!--<form class="form-horizontal">
+<div class="form-group">
+<label for="id_ruta" class="col-sm-3 control-label">Id Ruta</label>
+    		<div class="col-sm-9">
+		<select class="form-control" id="id_ruta">
+		  <option>Cuidad Chavéz</option>
+		  <option>2</option>
+		  <option>3</option>
+		  <option>4</option>
+		  <option>5</option>
+		</select>
+		</div></div>
+		<br><br>
+	  	<div class="form-group">
+    		<label for="id_operador" class="col-sm-3 control-label">Id Operador</label>
+    		<div class="col-sm-9">
+      		<input type="text" class="form-control" id="id_operador" placeholder="Id Ruta">
+    		</div>
+	    		
+		</div>
+		<br>
+			<div class="form-group">
+  			<label for="id_Unidad" class="col-sm-3 control-label">Id Unidad</label>
+  				<div class="col-sm-9">
+  				</div>
+  			<input type="text" class="form-control" id="id_Unidad" placeholder="Id Unidad">
+    	</div>
+    	<br>
+  		</div>
+
+</form>-->
+
+<form class="form-horizontal">
+<fieldset>
+
+<!-- Select Basic -->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="selectbasic">Id Ruta</label>
+  <div class="col-md-6">
+    <select id="selectbasic" name="selectbasic" class="form-control">
+      <option value="1">Cuidad Chavez</option>
+      <option value="2">Los Bucares</option>
+    </select>
+  </div>
+</div>
+
+<!-- Text input-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="textinput">Id Operador</label>  
+  <div class="col-md-6">
+  <input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
+    
+  </div>
+</div>
+
+<!-- Text input-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="textinput">Id Unidad</label>  
+  <div class="col-md-6">
+  <input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
+    
+  </div>
+</div>
+
+<!-- Textarea -->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="textarea">Observaciones</label>
+  <div class="col-md-6">                     
+    <textarea class="form-control" id="textarea" name="textarea"></textarea>
+  </div>
+</div>
+
+<!-- Button -->
+<div class="form-group">
+  <div class="col-md-4 control-label" for="singlebutton"></div>
+  <div class="col-md-4">
+    <button id="singlebutton" name="singlebutton" class="btn btn-danger">Guardar</button>
+  </div>
+</div>
+
+</fieldset>
+</form>
+</div>
+
+
+</body>
+</html>
