@@ -18,7 +18,7 @@ class CreatePartsTable extends Migration
             $table->integer('operator_id')->unsigned();
             $table->integer('unidad_id');
             $table->date('date');
-            $table->string('observation');
+            $table->string('observations');
 
             $table->foreign('route_id')->references('id')->on('routes')->onDelete('cascade');
             $table->foreign('operator_id')->references('id')->on('operators')->onDelete('cascade');

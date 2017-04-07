@@ -38,6 +38,7 @@ class CreateRoutesTable extends Migration
      */
     public function down()
     {
+        Schema::drop('passage_update');
         Schema::drop('routes');
     }
 }

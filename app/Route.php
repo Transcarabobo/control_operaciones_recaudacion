@@ -4,11 +4,11 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Operator extends Model
+class Route extends Model
 {
-	protected $table = 'operators';
+    protected $table = 'routes';
 
-	protected $fillable = ['id_card', 'cedula', 'name'];
+	protected $fillable = ['id', 'name', 'passage'];
 
 	public function part(){
 		return $this->hasMany('App\Part');
