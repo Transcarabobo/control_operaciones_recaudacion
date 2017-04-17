@@ -1,8 +1,13 @@
-
 body
 {
     color: black;
     background-color: white;
+}
+
+.logo-nav{
+    margin: 2px;
+    border-radius:5px;
+    width: 300px; height: 45px;
 }
 
 .navbar-inverse
@@ -36,31 +41,7 @@ body
     background-color: #cd2f33;
 }
 
-.quitar-float
+.admin-footer
 {
-    float: none;
-}
-.cabecera
-{
-    height: 70px;
 
-    background-color: #ba322b;
-}
-
-
-.alto_img
-{
-    height: 40px;
-}
-
-.contenido
-{
-    height: 750px;
-}
-
-.titulo
-{
-    font-family: 'Lobster', cursive;
-    font-size: 50px;
-    color: #2E2E2E;
 }

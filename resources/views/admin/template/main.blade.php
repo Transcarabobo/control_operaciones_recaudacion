@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <link rel="stylesheet" type="text/css" href="{{ asset('css/bootstrap.min.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('css/main.css') }}">
     @yield('link')
@@ -14,8 +13,8 @@
 <body>
     @include('admin.template.partial.nav')
     
-    <div class="content">
-        <div class="col-md-8 col-md-offset-2">
+    <div class="container">
+        <div class="row">
             <div class="panel panel-default">
                 <div class="panel-heading"><h1>@yield('title')</h1></div>
                 <div class="panel-body">
@@ -24,6 +23,17 @@
             </div>
         </div>
     </div>
+
+    <footer class="admin-footer">
+        <nav class="navbar navbar-default">
+          <div class="container-fluid">
+            <div class="collapse navbar-collapse">
+                <p class="navbar-text">Todos los derechos reservados &copy {{ date('Y') }} </p>
+                <p class="navbar-text navbar-right"><b>Transcarabobo C.A.</b></p>
+            </div>
+          </div>
+        </nav>
+    </footer>
     
     <script src="{{ asset('js/jquery-2.2.4.min.js') }}"></script>
     <script src="{{ asset('js/bootstrap.min.js') }}"></script>
