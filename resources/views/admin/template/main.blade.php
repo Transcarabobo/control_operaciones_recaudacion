@@ -11,13 +11,15 @@
     <title>@yield('title', 'Default') | Panel de Administración</title>
 </head>
 <body>
-    @include('admin.template.partial.nav')
+    @include('admin.template.partials.nav')
     
     <div class="container">
         <div class="row">
             <div class="panel panel-default">
-                <div class="panel-heading"><h1>@yield('title')</h1></div>
+                <div class="panel-heading"><b>@yield('title')</b></div>
                 <div class="panel-body">
+                    @include('flash::message')
+                    @include('admin.template.partials.errors')
                     @yield('content')
                 </div>
             </div>

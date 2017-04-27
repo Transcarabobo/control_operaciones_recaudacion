@@ -17,16 +17,23 @@
 	        <li class="dropdown">
 	          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Registro<span class="caret"></span></a>
 	          <ul class="dropdown-menu">
-	          	<li><a href="operador.html">Usuarios</a></li>
-	            <li><a href="operador.html">Operadores</a></li>
-	            <li><a href="nuevaruta.html">Rutas</a></li>
+	          	<li><a href="{{ route('admin.users.index') }}">Usuarios</a></li>
+	            <li><a href="{{ route('admin.operators.index') }}">Operadores</a></li>
+	            <li><a href="{{ route('admin.vehicles.index') }}">Vehiculos</a></li>
+	            <li><a href="{{ route('admin.routes.index') }}">Rutas</a></li>
 	            <li role="separator" class="divider"></li>
-	            <li><a href="parte_diario">Parte</a></li>
-	            <li><a href="parte_diario">Recaudación</a></li>
+	            <li><a href="{{ route('admin.despatch.index') }}">Despachos</a></li>
+	            <li><a href="{{ route('admin.collections.index') }}">Recaudación</a></li>
 	          </ul>
 	        </li>
 	        <li><a href="consulta.html">Consulta</a></li>
-	        <li><a href="index.html">Salir</a></li>
+	        <li class="dropdown">
+	          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Usuario<span class="caret"></span></a>
+	          <ul class="dropdown-menu">
+	          	<li><a href="index.html">Cambiar Contraseña</a></li>
+	        	<li><a href="index.html">Salir</a></li>
+	          </ul>
+	         </li>
 	      </ul>
 	    </div><!-- /.navbar-collapse -->
 	  </div><!-- /.container-fluid -->
