@@ -1,5 +1,5 @@
 <nav class="navbar navbar-inverse">
-	  <div class="container-fluid">
+	<div class="container-fluid">
 	    <!-- Brand and toggle get grouped for better mobile display -->
 	    <div class="navbar-header">
 	      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
@@ -20,10 +20,10 @@
 	          	<li><a href="{{ route('admin.users.index') }}">Usuarios</a></li>
 	            <li><a href="{{ route('admin.operators.index') }}">Operadores</a></li>
 	            <li><a href="{{ route('admin.vehicles.index') }}">Vehiculos</a></li>
-	            <li><a href="{{ route('admin.routes.index') }}">Rutas</a></li>
+	            <li><a href="#">Rutas</a></li>
 	            <li role="separator" class="divider"></li>
-	            <li><a href="{{ route('admin.despatch.index') }}">Despachos</a></li>
-	            <li><a href="{{ route('admin.collections.index') }}">Recaudación</a></li>
+	            <li><a href="#">Despachos</a></li>
+	            <li><a href="#">Recaudación</a></li>
 	          </ul>
 	        </li>
 	        <li><a href="consulta.html">Consulta</a></li>
@@ -36,5 +36,5 @@
 	         </li>
 	      </ul>
 	    </div><!-- /.navbar-collapse -->
-	  </div><!-- /.container-fluid -->
+	</div><!-- /.container-fluid -->
 </nav>

@@ -1,10 +1,11 @@
 @extends('admin.template.main')
-@section('title','Bienvenido')
+@section('link')
+	<link rel="stylesheet" type="text/css" href="{{ asset('css/animate.css') }}">
+@endsection
+@section('title','Bienvenido ')
 @section('content')
-    <h2>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-    consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-    cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-    proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</h2 >
+	<h1 class="text-center">Sistema de Control de Operaciones y Recaudación</h1 >
+	<div class="col-md-6 col-md-offset-3 animated slideInLeft">
+		<img src="{{ asset('img/fondo-bus.jpg') }}" class="img-responsive">
+	</div>
 @endsection
