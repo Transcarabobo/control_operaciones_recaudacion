@@ -40,8 +40,9 @@ class VehiclesController extends Controller
     public function store(VehicleRequest $request)
     {
         $vehicle = new Vehicle($request->all());
+        $id = $vehicle->id;
         $vehicle->save();
-        Flash::success("Se ha registrado el vehiculo". $vehicle->id . " de forma exitosa!");
+        Flash::success("Se ha registrado el vehiculo " . $id . " de forma exitosa!");
         return redirect()->route('admin.vehicles.index');
     }
 
