@@ -16,12 +16,13 @@ class CreatePartsTable extends Migration
             $table->increments('id');
             $table->integer('route_id')->unsigned();
             $table->integer('operator_id')->unsigned();
-            $table->integer('unidad_id');
+            $table->integer('unidad_id')->unsigned();
             $table->date('date');
             $table->string('observations');
 
             $table->foreign('route_id')->references('id')->on('routes')->onDelete('cascade');
             $table->foreign('operator_id')->references('id')->on('operators')->onDelete('cascade');
+            $table->foreign('unidad_id')->references('id')->on('buses')->onDelete('cascade');
 
             $table->timestamps();
         });

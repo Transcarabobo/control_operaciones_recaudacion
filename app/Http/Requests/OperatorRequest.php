@@ -25,8 +25,8 @@ class OperatorRequest extends Request
     {
         return [
             'name'      => 'min:4|max:128|string|required',
-            'cedula'    => 'min:7|max:8|string|required|unique:operators'
-            //'id_card'  => 'size:8|alpha_num|unique:operators'
+            'cedula'    => 'min:7|max:8|string|required|unique:operators',
+            'id_card'   => 'size:8|alpha_num|unique:operators'
         ];
     }
 }

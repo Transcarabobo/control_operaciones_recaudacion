@@ -18,6 +18,10 @@ class Part extends Model
 		return $this->belongsTo('App\Operator');
 	}
 
+  public function vehicle(){
+		return $this->belongsTo('App\Vehicle');
+	}
+
 	public function collection(){
 		return $this->hasOne('App\Collection');
 	}

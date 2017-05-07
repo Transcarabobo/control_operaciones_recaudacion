@@ -14,7 +14,7 @@ class CreateOperatorsTable extends Migration
     {
         Schema::create('operators', function (Blueprint $table) {
             $table->increments('id');
-            $table->char('id_card', 8)->unique();
+            $table->char('id_card', 8);
             $table->char('cedula', 8)->unique();
             $table->string('name', 128);
             $table->timestamps();
