@@ -40,7 +40,12 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function(){
 		'uses' => 'RoutesController@destroy',
 		'as'   => 'admin.routes.destroy'
 	]);
-	
+	Route::resource('despatches', 'DespatchesController');
+	Route::get('despatches/{id}/destroy', [
+		'uses' => 'DespatchesController@destroy',
+		'as'   => 'admin.despatches.destroy'
+	]);
+
 });
 
 // Authentication routes...

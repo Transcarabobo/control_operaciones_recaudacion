@@ -25,7 +25,7 @@
 	            <li><a href="{{ route('admin.vehicles.index') }}">Vehiculos</a></li>
 	            <li><a href="{{ route('admin.routes.index') }}">Rutas</a></li>
 	            <li role="separator" class="divider"></li>
-	            <li><a href="#">Despachos</a></li>
+	            <li><a href="{{ route('admin.despatches.index') }}">Despachos</a></li>
 	            <li><a href="#">Recaudación</a></li>
 	          </ul>
 	        </li>
