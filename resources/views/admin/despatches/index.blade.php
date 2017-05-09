@@ -1,5 +1,5 @@
 @extends('admin.template.main')
-@section('title','Lista de Despacho')
+@section('title','Lista de Despacho' )
 @section('content')
     <a href="{{ route('admin.despatches.create') }}" class="btn btn-info">Registrar nuevo Despacho</a><hr />
     <table class="table table-striped">
@@ -25,5 +25,6 @@
           @endforeach
         </tbody>
     </table>
-<div class="text-center">{!! $despatches->render() !!}</div>
+    <div class="text-left">Total: {!! $despatches->total() !!} Despacho(s)</div>
+    <div class="text-center">{!! $despatches->render() !!}</div>
 @endsection

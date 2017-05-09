@@ -34,7 +34,7 @@
 
             <div class="form-group">
                 {!! Form::label('observations', 'Observaciones') !!}
-                {!! Form::textarea('observations', null, ['class' => 'form-control'])!!}
+                {!! Form::textarea('observations', null, ['class' => 'form-control', 'rows' => '3']) !!}
             </div>
 
 
@@ -54,7 +54,9 @@
       $(function () {
         $('#datetime').datetimepicker({
           locale: 'es',
-          format: 'YYYY-MM-DD'
+          format: 'YYYY-MM-DD',
+          defaultDate: date,
+          maxDate: date
         });
       });
     </script>

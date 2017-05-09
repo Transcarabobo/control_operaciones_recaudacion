@@ -34,7 +34,7 @@
 
             <div class="form-group">
                 {!! Form::label('observations', 'Observaciones') !!}
-                {!! Form::textarea('observations', $despatch->observations, ['class' => 'form-control'])!!}
+                {!! Form::textarea('observations', $despatch->observations, ['class' => 'form-control', 'rows' => '3']) !!}
             </div>
 
 
