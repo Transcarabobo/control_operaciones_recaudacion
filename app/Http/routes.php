@@ -11,17 +11,19 @@
 |
 */
 
-Route::get('/', ['middleware' => 'auth', function () {
+Route::get('/', ['as' => 'welcome', 'middleware' => 'auth', function () {
     return view('welcome');
 }]);
 
 Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function(){
 
-	Route::resource('users', 'UsersController');
-	Route::get('users/{id}/destroy', [
-		'uses' => 'UsersController@destroy',
-		'as'   => 'admin.users.destroy'
-	]);
+	Route::group(['middleware' => 'admin'], function(){
+		Route::resource('users', 'UsersController');
+		Route::get('users/{id}/destroy', [
+			'uses' => 'UsersController@destroy',
+			'as'   => 'admin.users.destroy'
+		]);
+	});
 
 	Route::resource('operators', 'OperatorsController');
 	Route::get('operators/{id}/destroy', [
@@ -40,6 +42,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function(){
 		'uses' => 'RoutesController@destroy',
 		'as'   => 'admin.routes.destroy'
 	]);
+
 	Route::resource('despatches', 'DespatchesController');
 	Route::get('despatches/{id}/destroy', [
 		'uses' => 'DespatchesController@destroy',
