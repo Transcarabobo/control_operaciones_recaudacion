@@ -10,7 +10,11 @@ class Vehicle extends Model
 
     protected $fillable = ['id', 'product_code', 'motor_code', 'type','brand', 'model', 'year', 'vin', 'imei', 'sincard', 'line_number', 'status'];
 
-    public function part(){
-  		return $this->hasMany('App\Part');
+    public function despatch(){
+  		return $this->hasMany('App\Despatch');
   	}
+
+    public function scopeSearch($query, $id){
+      return $query->where('id', 'LIKE', "%$id%");
+    }
 }

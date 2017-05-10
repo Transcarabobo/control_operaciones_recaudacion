@@ -17,10 +17,11 @@ class VehiclesController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $vehicles = Vehicle::orderBy('id', 'ASC')->paginate(10);
-        return view('admin.vehicles.index')->with('vehicles', $vehicles);    }
+        $vehicles = Vehicle::search($request->id)->orderBy('id', 'ASC')->paginate(10);
+        return view('admin.vehicles.index')->with('vehicles', $vehicles);
+    }
 
     /**
      * Show the form for creating a new resource.
@@ -96,6 +97,20 @@ class VehiclesController extends Controller
         $vehicle = Vehicle::find($id);
         $vehicle->delete();
         Flash::error('El vehiculo ' . $vehicle->id . ' ha sido borrado de forma exitosa!');
+        return redirect()->route('admin.vehicles.index');
+    }
+
+    public function status($id)
+    {
+        $vehicle = Vehicle::find($id);
+        if ($vehicle->status == 'disabled') {
+          $vehicle->status = 'enabled';
+          Flash::message('El vehiculo <strong>' . $vehicle->id . '</strong> ha sido colocado <strong>Operativo</strong>!');
+        } else {
+          $vehicle->status = 'disabled';
+          Flash::warning('El vehiculo <strong>' . $vehicle->id . '</strong> ha sido colocado <strong>Inperativo</strong>!');
+        }
+        $vehicle->save();
         return redirect()->route('admin.vehicles.index');
     }
 }

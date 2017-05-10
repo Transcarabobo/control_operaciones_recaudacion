@@ -1,7 +1,16 @@
 @extends('admin.template.main')
 @section('title','Lista de Vehiculos')
 @section('content')
-    <a href="{{ route('admin.vehicles.create') }}" class="btn btn-info">Registrar nuevo vehiculo</a><hr />
+    <a href="{{ route('admin.vehicles.create') }}" class="btn btn-info">Registrar nuevo vehiculo</a>
+    <!-- BUSCADOR DE ARTICULOS -->
+      {!! Form::open(['route' => 'admin.vehicles.index', 'method' => 'GET', 'class' => 'navbar-form pull-right']) !!}
+      <div class="input-group">
+        {!! Form::text('id', null, ['class' => 'form-control', 'placeholder' => 'Buscar por ID...', 'aria-describedby' => 'search']) !!}
+        <span class="input-group-addon" id="search"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></span>
+      </div>
+      {!! Form::close() !!}
+    <!-- FIN DEL BUSCADOR -->
+    <hr />
     <table class="table table-striped">
         <thead>
           <th>ID</th>
@@ -19,11 +28,27 @@
               <td>{{ $vehicle->vin }}</td>
               <td>{{ $vehicle->line_number }}</td>
               <td>
+                <div class="btn-group">
                 @if($vehicle->status == "disabled")
-                    <span class="label label-danger">Inoperativa</span>
+                  <button type="button" class="btn btn-danger">Inoperativo</button>
+                  <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 @else
-                    <span class="label label-success">Operativa</span>
+                  <button type="button" class="btn btn-success">Operativo</button>
+                  <button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 @endif
+                    <span class="caret"></span>
+                    <span class="sr-only">Toggle Dropdown</span>
+                  </button>
+                  <ul class="dropdown-menu">
+                    <li><a href="{{ route('admin.vehicles.status', $vehicle->id) }}">
+                      @if($vehicle->status == "disabled")
+                        Operativo
+                      @else
+                        Inoperativo
+                      @endif
+                    </a></li>
+                  </ul>
+                </div>
               </td>
               <td>
                 <a href="{{ route('admin.vehicles.edit', $vehicle->id) }}" class="btn btn-warning"><span class="glyphicon glyphicon-wrench" aria-hidden="true"></span></a>
