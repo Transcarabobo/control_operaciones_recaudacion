@@ -10,7 +10,7 @@ class Operator extends Model
 
 	protected $fillable = ['id_card', 'cedula', 'name'];
 
-	public function part(){
-		return $this->hasMany('App\Part');
+	public function despatch(){
+		return $this->hasMany('App\Despatch');
 	}
 }

@@ -18,7 +18,7 @@ class Despatch extends Model
 		return $this->belongsTo('App\Operator');
 	}
 
-  public function vehicle(){
+  	public function vehicle(){
 		return $this->belongsTo('App\Vehicle');
 	}
 

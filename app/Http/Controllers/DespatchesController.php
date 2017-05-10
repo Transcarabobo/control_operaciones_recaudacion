@@ -21,6 +21,10 @@ class DespatchesController extends Controller
     public function index()
     {
         $despatches = Despatch::orderBy('date', 'DESC')->paginate(10);
+        $despatches->each(function($despatches){
+            $despatches->operator;
+            $despatches->collection;
+        });
         return view('admin.despatches.index')->with('despatches', $despatches);
     }
 

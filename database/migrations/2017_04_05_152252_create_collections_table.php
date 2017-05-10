@@ -17,7 +17,7 @@ class CreateCollectionsTable extends Migration
             $table->integer('despatch_id')->unsigned();
             $table->decimal('amount', 7, 2);
 
-            $table->foreign('part_id')->references('id')->on('parts')->onDelete('cascade');
+            $table->foreign('despatch_id')->references('id')->on('parts')->onDelete('cascade');
 
             $table->timestamps();
 
