@@ -8,9 +8,9 @@ class Collection extends Model
 {
     protected $table = 'collections';
 
-	protected $fillable = ['part_id', 'rode'];
+	protected $fillable = ['despatch_id', 'amount'];
 
-	public function part(){
-		return $this->belongsTo('App\Part');
+	public function despatch(){
+		return $this->belongsTo('App\Despatch');
 	}
 }

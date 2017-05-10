@@ -14,8 +14,8 @@ class CreateCollectionsTable extends Migration
     {
         Schema::create('collections', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('part_id')->unsigned();
-            $table->decimal('rode', 7, 2);
+            $table->integer('despatch_id')->unsigned();
+            $table->decimal('amount', 7, 2);
 
             $table->foreign('part_id')->references('id')->on('parts')->onDelete('cascade');
 
