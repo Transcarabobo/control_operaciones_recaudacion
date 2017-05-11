@@ -53,6 +53,11 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function(){
 		'as'   => 'admin.despatches.destroy'
 	]);
 
+  Route::get('collections/{id}/create', [
+		'uses' => 'CollectionsController@create',
+		'as'   => 'admin.collections.create'
+	]);
+
 });
 
 // Authentication routes...

@@ -1,13 +1,13 @@
 @extends('admin.template.main')
-@section('title','Listado de Despachos' )
+@section('title','Listado de Recaudación' )
 @section('content')
-    <a href="{{ route('admin.despatches.create') }}" class="btn btn-info">Registrar nuevo Despacho</a><hr />
     <table class="table table-striped">
         <thead>
           <th>Operador</th>
           <th>Ruta</th>
           <th>Unidad</th>
           <th>Fecha</th>
+          <th>Monto</th>
           <th>Acción</th>
         </thead>
         <tbody>
@@ -20,9 +20,6 @@
               <td>
                 <a href="{{ route('admin.despatches.edit', $despatch->id) }}" class="btn btn-warning"><span class="glyphicon glyphicon-wrench" aria-hidden="true"></span></a>
                 <a href="{{ route('admin.despatches.destroy', $despatch->id) }}" onclick="return confirm('¿Seguro que desear eliminar este despacho?')" class="btn btn-danger"><span class="glyphicon glyphicon-remove-circle" aria-hidden="true"></span></a>
-                @if($despatch->collection == null)
-                  <a href="{{ route('admin.collections.create', $despatch->id) }}" class="btn btn-primary"><span class="glyphicon glyphicon-usd" aria-hidden="true"></span></a>
-                @endif
               </td>
             </tr>
           @endforeach
