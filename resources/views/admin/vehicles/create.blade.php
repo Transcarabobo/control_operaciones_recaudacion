@@ -46,7 +46,7 @@
 
             <div class="form-group">
                 {!! Form::label('imei', 'Imei') !!}
-                {!! Form::text('imei', null, ['class' => 'form-control', 'placeholder' => '199999999999915', 'required']) !!}
+                {!! Form::text('imei', null, ['class' => 'form-control', 'placeholder' => '199999999999915']) !!}
             </div>
 
             <div class="form-group">

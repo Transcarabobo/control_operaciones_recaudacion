@@ -32,7 +32,9 @@ class VehicleRequest extends Request
             'model'         => 'required',
             'year'          => 'integer|required',
             'vin'           => 'size:17|alpha_num|required|unique:buses',
-            'imei'          => 'size:15|alpha_num|required|unique:buses',
+            'imei'          => 'size:15|alpha_num|unique:buses',
+            'sincard'       => 'size:18|alpha_num|unique:buses',
+            'line_number'   => 'size:11|alpha_num|unique:buses',
             'status'        => 'required'
         ];
     }
