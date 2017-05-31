@@ -58,5 +58,10 @@
           @endforeach
         </tbody>
     </table>
-<div class="text-center">{!! $vehicles->render() !!}</div>
+    <div class="row">
+      <div class="col-sm-4 col-md-4 text-center">Total: {!! $vehicles->total() !!} Vehiculos(s)</div>
+      <div class="col-sm-4 col-md-4 text-center">Operativo: {!! $countenable !!} Vehiculos(s)</div>
+      <div class="col-sm-4 col-md-4 text-center">Inoperativo: {!! $vehicles->total() - $countenable !!} Vehiculos(s)</div>
+    </div>
+    <div class="text-center">{!! $vehicles->render() !!}</div>
 @endsection

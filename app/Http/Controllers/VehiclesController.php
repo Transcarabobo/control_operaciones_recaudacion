@@ -20,7 +20,8 @@ class VehiclesController extends Controller
     public function index(Request $request)
     {
         $vehicles = Vehicle::search($request->id)->orderBy('id', 'ASC')->paginate(10);
-        return view('admin.vehicles.index')->with('vehicles', $vehicles);
+        $countenable = Vehicle::search($request->id)->where('status', 'enabled')->count();
+        return view('admin.vehicles.index')->with('vehicles', $vehicles)->with('countenable', $countenable);
     }
 
     /**
