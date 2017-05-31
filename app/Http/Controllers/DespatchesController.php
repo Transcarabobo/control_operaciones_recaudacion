@@ -18,9 +18,9 @@ class DespatchesController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $despatches = Despatch::orderBy('date', 'DESC')->paginate(10);
+        $despatches = Despatch::searchDate($request->date)->orderBy('date', 'DESC')->paginate(10);
         $despatches->each(function($despatches){
             $despatches->operator;
             $despatches->collection;

@@ -1,7 +1,16 @@
 @extends('admin.template.main')
 @section('title','Listado de Despachos' )
 @section('content')
-    <a href="{{ route('admin.despatches.create') }}" class="btn btn-info">Registrar nuevo Despacho</a><hr />
+    <a href="{{ route('admin.despatches.create') }}" class="btn btn-info">Registrar nuevo Despacho</a>
+    <!-- BUSCADOR DE DESPACHOS POR FECHA -->
+      {!! Form::open(['route' => 'admin.despatches.index', 'method' => 'GET', 'class' => 'navbar-form pull-right']) !!}
+        <div class="input-group">
+          {!! Form::text('date', null, ['class' => 'form-control', 'placeholder' => 'Buscar por fecha...', 'aria-describedby' => 'search']) !!}
+          <span class="input-group-addon" id="search"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></span>
+        </div>
+      {!! Form::close() !!}
+    <!-- FIN DEL BUSCADOR -->
+    <hr />
     <table class="table table-striped">
         <thead>
           <th>Operador</th>

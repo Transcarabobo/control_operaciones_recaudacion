@@ -25,4 +25,8 @@ class Despatch extends Model
 	public function collection(){
 		return $this->hasOne('App\Collection');
 	}
+
+  public function scopeSearchDate($query, $date){
+    return $query->where('date', 'LIKE', "%$date%");
+  }
 }
