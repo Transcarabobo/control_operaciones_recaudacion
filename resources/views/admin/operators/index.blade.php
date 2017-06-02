@@ -1,7 +1,16 @@
 @extends('admin.template.main')
 @section('title','Lista de Operadores')
 @section('content')
-    <a href="{{ route('admin.operators.create') }}" class="btn btn-info">Registrar nuevo operador</a><hr />
+    <a href="{{ route('admin.operators.create') }}" class="btn btn-info">Registrar nuevo operador</a>
+    <!-- BUSCADOR DE OPERADORES POR NOMBRE-->
+      {!! Form::open(['route' => 'admin.operators.index', 'method' => 'GET', 'class' => 'navbar-form pull-right']) !!}
+      <div class="input-group">
+        {!! Form::text('name', null, ['class' => 'form-control', 'placeholder' => 'Buscar por Nombre... [Enter]', 'aria-describedby' => 'search']) !!}
+        <span class="input-group-addon" id="search"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></span>
+      </div>
+      {!! Form::close() !!}
+    <!-- FIN DEL BUSCADOR -->
+    <hr />
     <table class="table table-striped">
         <thead>
           <th>ID</th>

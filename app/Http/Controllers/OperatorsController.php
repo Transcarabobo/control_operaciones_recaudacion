@@ -17,9 +17,9 @@ class OperatorsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $operators = Operator::orderBy('id', 'ASC')->paginate(10);
+        $operators = Operator::search($request->name)->orderBy('name', 'ASC')->paginate(10);
         return view('admin.operators.index')->with('operators', $operators);
     }
 

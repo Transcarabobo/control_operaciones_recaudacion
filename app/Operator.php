@@ -13,4 +13,8 @@ class Operator extends Model
 	public function despatch(){
 		return $this->hasMany('App\Despatch');
 	}
+
+	public function scopeSearch($query, $name){
+		return $query->where('name', 'LIKE', "%$name%");
+	}
 }
