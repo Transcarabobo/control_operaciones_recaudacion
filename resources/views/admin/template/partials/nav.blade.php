@@ -21,13 +21,13 @@
 	          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Registro<span class="caret"></span></a>
 	          <ul class="dropdown-menu">
 	          @if(Auth::user()->admin())
-				<li><a href="{{ route('admin.users.index') }}">Usuarios</a></li>
+				<li>{!! link_to_route('admin.users.index', 'Usuarios') !!}</li>
 	          @endif
-	            <li><a href="{{ route('admin.operators.index') }}">Operadores</a></li>
-	            <li><a href="{{ route('admin.vehicles.index') }}">Vehiculos</a></li>
-	            <li><a href="{{ route('admin.routes.index') }}">Rutas</a></li>
+	            <li>{!! link_to_route('admin.operators.index', 'Operadores') !!}</li>
+	            <li>{!! link_to_route('admin.vehicles.index', 'Vehiculos') !!}</li>
+	            <li>{!! link_to_route('admin.routes.index', 'Rutas') !!}</li>
 	            <li role="separator" class="divider"></li>
-	            <li><a href="{{ route('admin.despatches.index') }}">Despachos</a></li>
+	            <li>{!! link_to_route('admin.despatches.index', 'Despachos') !!}</li>
 	            <li><a href="#">Recaudación</a></li>
 	          </ul>
 	        </li>
@@ -36,7 +36,7 @@
 	          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{ Auth::user()->name }}<span class="caret"></span></a>
 	          <ul class="dropdown-menu">
 	          	<li>{!! link_to_route('admin.users.password', 'Cambiar Contraseña') !!}</li>
-	        	<li><a href="{{ route('admin.auth.logout') }}">Salir</a></li>
+	        	<li>{!! link_to_route('admin.auth.logout', 'Salir') !!}</li>
 	          </ul>
 	         </li>
 	      </ul>
