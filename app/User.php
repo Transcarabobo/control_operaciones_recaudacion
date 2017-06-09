@@ -41,4 +41,9 @@ class User extends Model implements AuthenticatableContract,
     {
         return $this->access === 'admin';
     }
+
+    public function operaciones()
+    {
+        return $this->admin() || $this->access === 'operaciones';
+    }
 }
