@@ -25,6 +25,15 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function(){
 		]);
 	});
 
+	Route::get('user/password', [
+			'uses' => 'UsersController@password',
+			'as'   => 'admin.users.password'
+	]);
+	Route::post('user/password', [
+			'uses' => 'UsersController@updatePassword',
+			'as'   => 'admin.users.password'
+	]);
+
 	Route::resource('operators', 'OperatorsController');
 	Route::get('operators/{id}/destroy', [
 		'uses' => 'OperatorsController@destroy',

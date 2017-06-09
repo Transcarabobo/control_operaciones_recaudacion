@@ -9,6 +9,9 @@ use App\Http\Controllers\Controller;
 use App\User;
 use Laracasts\Flash\Flash;
 use App\Http\Requests\UserRequest;
+use App\Http\Requests\UpdatePasswordRequest;
+use Auth;
+use Hash;
 
 class UsersController extends Controller
 {
@@ -99,5 +102,24 @@ class UsersController extends Controller
         $user->delete();
         Flash::error('El usuario ' . $user->name . ' ha sido borrado de forma exitosa!');
         return redirect()->route('admin.users.index');
+    }
+
+    public function password()
+    {
+        return view('admin.users.password');
+    }
+
+    public function updatePassword(UpdatePasswordRequest $request)
+    {
+        if (Hash::check($request->mypassword, Auth::user()->password)) {
+            $user = new User;
+            $user->where('email', '=', Auth::user()->email)
+                 ->update(['password' => bcrypt($request->password)]);
+            Flash::success("Contraseña cambiada exitosamente!");
+            return redirect()->route('welcome');
+        }else{
+            Flash::error("Credenciales incorrectas!");
+            return redirect()->route('admin.users.password');
+        }
     }
 }

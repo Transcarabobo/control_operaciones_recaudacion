@@ -35,7 +35,7 @@
 	        <li class="dropdown">
 	          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{ Auth::user()->name }}<span class="caret"></span></a>
 	          <ul class="dropdown-menu">
-	          	<li><a href="index.html">Cambiar Contraseña</a></li>
+	          	<li>{!! link_to_route('admin.users.password', 'Cambiar Contraseña') !!}</li>
 	        	<li><a href="{{ route('admin.auth.logout') }}">Salir</a></li>
 	          </ul>
 	         </li>
