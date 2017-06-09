@@ -28,7 +28,9 @@
               <td>{{ $despatch->date }}</td>
               <td>
                 <a href="{{ route('admin.despatches.edit', $despatch->id) }}" class="btn btn-warning"><span class="glyphicon glyphicon-wrench" aria-hidden="true"></span></a>
-                <a href="{{ route('admin.despatches.destroy', $despatch->id) }}" onclick="return confirm('¿Seguro que desear eliminar este despacho?')" class="btn btn-danger"><span class="glyphicon glyphicon-remove-circle" aria-hidden="true"></span></a>
+                @if(Auth::user()->admin())
+                  <a href="{{ route('admin.despatches.destroy', $despatch->id) }}" onclick="return confirm('¿Seguro que desear eliminar este despacho?')" class="btn btn-danger"><span class="glyphicon glyphicon-remove-circle" aria-hidden="true"></span></a>
+                @endif
                 @if($despatch->collection == null)
                   <a href="{{ route('admin.collections.create', $despatch->id) }}" class="btn btn-primary"><span class="glyphicon glyphicon-usd" aria-hidden="true"></span></a>
                 @endif

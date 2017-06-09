@@ -52,7 +52,9 @@
               </td>
               <td>
                 <a href="{{ route('admin.vehicles.edit', $vehicle->id) }}" class="btn btn-warning"><span class="glyphicon glyphicon-wrench" aria-hidden="true"></span></a>
-                <a href="{{ route('admin.vehicles.destroy', $vehicle->id) }}" onclick="return confirm('¿Seguro que desear eliminar el vehiculo {{ $vehicle->id }}?')" class="btn btn-danger"><span class="glyphicon glyphicon-remove-circle" aria-hidden="true"></span></a>
+                @if(Auth::user()->admin())
+                  <a href="{{ route('admin.vehicles.destroy', $vehicle->id) }}" onclick="return confirm('¿Seguro que desear eliminar el vehiculo {{ $vehicle->id }}?')" class="btn btn-danger"><span class="glyphicon glyphicon-remove-circle" aria-hidden="true"></span></a>
+                @endif
               </td>
             </tr>
           @endforeach

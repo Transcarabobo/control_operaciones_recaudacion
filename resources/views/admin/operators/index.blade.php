@@ -28,7 +28,9 @@
               <td>{{ $operator->id_card }}</td>
               <td>
                 <a href="{{ route('admin.operators.edit', $operator->id) }}" class="btn btn-warning"><span class="glyphicon glyphicon-wrench" aria-hidden="true"></span></a>
-                <a href="{{ route('admin.operators.destroy', $operator->id) }}" onclick="return confirm('¿Seguro que desear eliminar el operador {{ $operator->name }}?')" class="btn btn-danger"><span class="glyphicon glyphicon-remove-circle" aria-hidden="true"></span></a>
+                @if(Auth::user()->admin())
+                  <a href="{{ route('admin.operators.destroy', $operator->id) }}" onclick="return confirm('¿Seguro que desear eliminar el operador {{ $operator->name }}?')" class="btn btn-danger"><span class="glyphicon glyphicon-remove-circle" aria-hidden="true"></span></a>
+                @endif
               </td>
             </tr>
           @endforeach

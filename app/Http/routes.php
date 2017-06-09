@@ -23,6 +23,26 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function(){
 			'uses' => 'UsersController@destroy',
 			'as'   => 'admin.users.destroy'
 		]);
+
+		Route::get('operators/{id}/destroy', [
+			'uses' => 'OperatorsController@destroy',
+			'as'   => 'admin.operators.destroy'
+		]);
+
+		Route::get('vehicles/{id}/destroy', [
+			'uses' => 'VehiclesController@destroy',
+			'as'   => 'admin.vehicles.destroy'
+		]);
+
+		Route::get('routes/{id}/destroy', [
+			'uses' => 'RoutesController@destroy',
+			'as'   => 'admin.routes.destroy'
+		]);
+
+		Route::get('despatches/{id}/destroy', [
+			'uses' => 'DespatchesController@destroy',
+			'as'   => 'admin.despatches.destroy'
+		]);
 	});
 
 	Route::get('user/password', [
@@ -35,34 +55,18 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function(){
 	]);
 
 	Route::resource('operators', 'OperatorsController');
-	Route::get('operators/{id}/destroy', [
-		'uses' => 'OperatorsController@destroy',
-		'as'   => 'admin.operators.destroy'
-	]);
-
+	
 	Route::resource('vehicles', 'VehiclesController');
-	Route::get('vehicles/{id}/destroy', [
-		'uses' => 'VehiclesController@destroy',
-		'as'   => 'admin.vehicles.destroy'
-	]);
-  Route::get('vehicles/{id}/status', [
+  	Route::get('vehicles/{id}/status', [
 		'uses' => 'VehiclesController@status',
 		'as'   => 'admin.vehicles.status'
 	]);
 
 	Route::resource('routes', 'RoutesController');
-	Route::get('routes/{id}/destroy', [
-		'uses' => 'RoutesController@destroy',
-		'as'   => 'admin.routes.destroy'
-	]);
 
 	Route::resource('despatches', 'DespatchesController');
-	Route::get('despatches/{id}/destroy', [
-		'uses' => 'DespatchesController@destroy',
-		'as'   => 'admin.despatches.destroy'
-	]);
 
-  Route::get('collections/{id}/create', [
+  	Route::get('collections/{id}/create', [
 		'uses' => 'CollectionsController@create',
 		'as'   => 'admin.collections.create'
 	]);

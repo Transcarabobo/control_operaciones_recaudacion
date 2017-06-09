@@ -17,7 +17,9 @@
               <td>{{ $route->passage }}</td>
               <td>
                 <a href="{{ route('admin.routes.edit', $route->id) }}" class="btn btn-warning"><span class="glyphicon glyphicon-wrench" aria-hidden="true"></span></a>
-                <a href="{{ route('admin.routes.destroy', $route->id) }}" onclick="return confirm('¿Seguro que desear eliminar el operador {{ $route->name }}?')" class="btn btn-danger"><span class="glyphicon glyphicon-remove-circle" aria-hidden="true"></span></a>
+                @if(Auth::user()->admin())
+                  <a href="{{ route('admin.routes.destroy', $route->id) }}" onclick="return confirm('¿Seguro que desear eliminar el operador {{ $route->name }}?')" class="btn btn-danger"><span class="glyphicon glyphicon-remove-circle" aria-hidden="true"></span></a>
+                @endif
               </td>
             </tr>
           @endforeach
