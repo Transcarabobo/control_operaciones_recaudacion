@@ -20,6 +20,9 @@ class PasswordController extends Controller
 
     use ResetsPasswords;
 
+    protected $subject = 'Enlace para restablecer tu contraseña';
+    protected $redirectTo = '/';
+    
     /**
      * Create a new password controller instance.
      *
@@ -28,5 +31,19 @@ class PasswordController extends Controller
     public function __construct()
     {
         $this->middleware('guest');
+    }
+
+    public function getEmail()
+    {
+        return view('admin.auth.password');
+    }
+
+    public function getReset($token = null)
+    {
+        if (is_null($token)) {
+            throw new NotFoundHttpException;
+        }
+
+        return view('admin.auth.reset')->with('token', $token);
     }
 }

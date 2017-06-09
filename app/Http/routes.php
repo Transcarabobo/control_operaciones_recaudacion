@@ -73,3 +73,15 @@ Route::get('admin/auth/logout', [
 	'uses' 	=> 'Auth\AuthController@getLogout',
 	'as'	=> 'admin.auth.logout'
 ]);
+
+// Reset Password...
+Route::get('user/password/email', 'Auth\PasswordController@getEmail');
+Route::post('user/password/email', [
+	'uses' 	=> 'Auth\PasswordController@postEmail',
+	'as'	=> 'user.password.email'
+]);
+Route::get('user/password/reset/{token}', 'Auth\PasswordController@getReset');
+Route::post('user/password/reset', [
+	'uses' 	=> 'Auth\PasswordController@postReset',
+	'as'	=> 'user.password.reset'
+]);

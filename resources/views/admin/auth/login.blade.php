@@ -18,6 +18,9 @@
                 {!! Form::checkbox('remenber', null)!!} Recordarme
             </div>
             <div class="form-group">
+                {!! link_to('user/password/email', 'Olvidaste tu Contraseña?') !!}
+            </div>
+            <div class="form-group">
                 {!! Form::submit('Acceder', ['class' => 'btn btn-primary'])!!}
             </div>
 
