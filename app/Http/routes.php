@@ -47,17 +47,37 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function(){
 
 	Route::group(['middleware' => 'operaciones'], function(){
 		Route::resource('operators', 'OperatorsController');
-	
+
 		Route::resource('vehicles', 'VehiclesController');
-	  	Route::get('vehicles/{id}/status', [
+	  Route::get('vehicles/{id}/status', [
 			'uses' => 'VehiclesController@status',
 			'as'   => 'admin.vehicles.status'
 		]);
 
 		Route::resource('routes', 'RoutesController');
 
-		Route::resource('despatches', 'DespatchesController');
+    Route::get('despatches/create', [
+			'uses' => 'DespatchesController@create',
+			'as'   => 'admin.despatches.create'
+		]);
+    Route::put('despatches/{despatches}', [
+			'uses' => 'DespatchesController@update',
+			'as'   => 'admin.despatches.update'
+		]);
+    Route::get('despatches/{despatches}/edit', [
+			'uses' => 'DespatchesController@edit',
+			'as'   => 'admin.despatches.edit'
+		]);
+    Route::post('despatches', [
+			'uses' => 'DespatchesController@store',
+			'as'   => 'admin.despatches.store'
+		]);
 	});
+
+  Route::get('despatches', [
+    'uses' => 'DespatchesController@index',
+    'as'   => 'admin.despatches.index'
+  ]);
 
 	Route::get('user/password', [
 			'uses' => 'UsersController@password',
@@ -68,7 +88,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function(){
 			'as'   => 'admin.users.password'
 	]);
 
-  	Route::get('collections/{id}/create', [
+  Route::get('collections/{id}/create', [
 		'uses' => 'CollectionsController@create',
 		'as'   => 'admin.collections.create'
 	]);

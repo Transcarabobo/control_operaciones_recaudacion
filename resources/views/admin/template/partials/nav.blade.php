@@ -21,14 +21,14 @@
 	          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Registro<span class="caret"></span></a>
 	          <ul class="dropdown-menu">
 	          @if(Auth::user()->admin())
-				<li>{!! link_to_route('admin.users.index', 'Usuarios') !!}</li>
+							<li>{!! link_to_route('admin.users.index', 'Usuarios') !!}</li>
 	          @endif
 	          @if(Auth::user()->operaciones())
 	            <li>{!! link_to_route('admin.operators.index', 'Operadores') !!}</li>
 	            <li>{!! link_to_route('admin.vehicles.index', 'Vehiculos') !!}</li>
 	            <li>{!! link_to_route('admin.routes.index', 'Rutas') !!}</li>
-	          @endif
 	            <li role="separator" class="divider"></li>
+						@endif
 	            <li>{!! link_to_route('admin.despatches.index', 'Despachos') !!}</li>
 	            <li><a href="#">Recaudación</a></li>
 	          </ul>

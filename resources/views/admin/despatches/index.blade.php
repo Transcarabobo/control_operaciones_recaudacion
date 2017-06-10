@@ -1,7 +1,9 @@
 @extends('admin.template.main')
 @section('title','Listado de Despachos' )
 @section('content')
-    <a href="{{ route('admin.despatches.create') }}" class="btn btn-info">Registrar nuevo Despacho</a>
+    @if(Auth::user()->operaciones())
+      <a href="{{ route('admin.despatches.create') }}" class="btn btn-info">Registrar nuevo Despacho</a>
+    @endif
     <!-- BUSCADOR DE DESPACHOS POR FECHA -->
       {!! Form::open(['route' => 'admin.despatches.index', 'method' => 'GET', 'class' => 'navbar-form pull-right']) !!}
         <div class="input-group">
