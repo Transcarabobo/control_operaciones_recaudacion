@@ -18,6 +18,18 @@ Route::get('/', ['as' => 'welcome', 'middleware' => 'auth', function () {
 Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function(){
 
 	Route::group(['middleware' => 'admin'], function(){
+    Route::resource('permissions', 'PermissionsController');
+    Route::get('permissions/{id}/destroy', [
+			'uses' => 'PermissionsController@destroy',
+			'as'   => 'admin.permissions.destroy'
+		]);
+
+    Route::resource('roles', 'RolesController');
+    Route::get('roles/{id}/destroy', [
+			'uses' => 'RolesController@destroy',
+			'as'   => 'admin.roles.destroy'
+		]);
+
 		Route::resource('users', 'UsersController');
 		Route::get('users/{id}/destroy', [
 			'uses' => 'UsersController@destroy',
