@@ -71,7 +71,7 @@ class RolesController extends Controller
     {
         $rol = Role::find($id);
         $permissions = Permission::orderBy('name', 'ASC')->lists('name', 'id');
-        $my_permissions = $rol->getPermissions()->toArray();
+        $my_permissions = $rol->permissions->lists('id')->toArray();
 
         return view('admin.roles.edit')
                 ->with('rol', $rol)
