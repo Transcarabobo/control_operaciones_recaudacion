@@ -21,7 +21,10 @@
 	          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Registro<span class="caret"></span></a>
 	          <ul class="dropdown-menu">
 	          @if(Auth::user()->admin())
+							<li>{!! link_to_route('admin.permissions.index', 'Permisos') !!}</li>
+							<li>{!! link_to_route('admin.roles.index', 'Roles') !!}</li>
 							<li>{!! link_to_route('admin.users.index', 'Usuarios') !!}</li>
+							<li role="separator" class="divider"></li>
 	          @endif
 	          @if(Auth::user()->operaciones())
 	            <li>{!! link_to_route('admin.operators.index', 'Operadores') !!}</li>
