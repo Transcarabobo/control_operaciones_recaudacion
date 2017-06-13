@@ -17,15 +17,15 @@ Route::get('/', ['as' => 'welcome', 'middleware' => 'auth', function () {
 
 Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function(){
 
-	Route::group(['middleware' => 'admin'], function(){
-    Route::resource('permissions', 'PermissionsController');
-    Route::get('permissions/{id}/destroy', [
+	Route::group(['middleware' => 'roleshinobi:administrator'], function(){
+		Route::resource('permissions', 'PermissionsController');
+		Route::get('permissions/{id}/destroy', [
 			'uses' => 'PermissionsController@destroy',
 			'as'   => 'admin.permissions.destroy'
 		]);
 
-    Route::resource('roles', 'RolesController');
-    Route::get('roles/{id}/destroy', [
+		Route::resource('roles', 'RolesController');
+		Route::get('roles/{id}/destroy', [
 			'uses' => 'RolesController@destroy',
 			'as'   => 'admin.roles.destroy'
 		]);
@@ -57,39 +57,39 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function(){
 		]);
 	});
 
-	Route::group(['middleware' => 'operaciones'], function(){
+	Route::group(['middleware' => 'roleshinobi:operations'], function(){
 		Route::resource('operators', 'OperatorsController');
 
 		Route::resource('vehicles', 'VehiclesController');
-	  Route::get('vehicles/{id}/status', [
+		Route::get('vehicles/{id}/status', [
 			'uses' => 'VehiclesController@status',
 			'as'   => 'admin.vehicles.status'
 		]);
 
 		Route::resource('routes', 'RoutesController');
 
-    Route::get('despatches/create', [
+		Route::get('despatches/create', [
 			'uses' => 'DespatchesController@create',
 			'as'   => 'admin.despatches.create'
 		]);
-    Route::put('despatches/{despatches}', [
+		Route::put('despatches/{despatches}', [
 			'uses' => 'DespatchesController@update',
 			'as'   => 'admin.despatches.update'
 		]);
-    Route::get('despatches/{despatches}/edit', [
+		Route::get('despatches/{despatches}/edit', [
 			'uses' => 'DespatchesController@edit',
 			'as'   => 'admin.despatches.edit'
 		]);
-    Route::post('despatches', [
+		Route::post('despatches', [
 			'uses' => 'DespatchesController@store',
 			'as'   => 'admin.despatches.store'
 		]);
 	});
 
-  Route::get('despatches', [
-    'uses' => 'DespatchesController@index',
-    'as'   => 'admin.despatches.index'
-  ]);
+	Route::get('despatches', [
+		'uses' => 'DespatchesController@index',
+		'as'   => 'admin.despatches.index'
+	])->middleware('permissionshinobi:read-despatch');
 
 	Route::get('user/password', [
 			'uses' => 'UsersController@password',
@@ -100,10 +100,10 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function(){
 			'as'   => 'admin.users.password'
 	]);
 
-  Route::get('collections/{id}/create', [
+	Route::get('collections/{id}/create', [
 		'uses' => 'CollectionsController@create',
 		'as'   => 'admin.collections.create'
-	]);
+	])->middleware('permissionshinobi:create-collection');
 
 });
 

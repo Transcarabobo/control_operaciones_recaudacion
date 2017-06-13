@@ -20,18 +20,18 @@
 	        <li class="dropdown">
 	          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Registro<span class="caret"></span></a>
 	          <ul class="dropdown-menu">
-	          @if(Auth::user()->admin())
-							<li>{!! link_to_route('admin.permissions.index', 'Permisos') !!}</li>
-							<li>{!! link_to_route('admin.roles.index', 'Roles') !!}</li>
-							<li>{!! link_to_route('admin.users.index', 'Usuarios') !!}</li>
-							<li role="separator" class="divider"></li>
-	          @endif
-	          @if(Auth::user()->operaciones())
+	          @role('administrator')
+				<li>{!! link_to_route('admin.permissions.index', 'Permisos') !!}</li>
+				<li>{!! link_to_route('admin.roles.index', 'Roles') !!}</li>
+				<li>{!! link_to_route('admin.users.index', 'Usuarios') !!}</li>
+				<li role="separator" class="divider"></li>
+	          @endrole
+	          @role('operations')
 	            <li>{!! link_to_route('admin.operators.index', 'Operadores') !!}</li>
 	            <li>{!! link_to_route('admin.vehicles.index', 'Vehiculos') !!}</li>
 	            <li>{!! link_to_route('admin.routes.index', 'Rutas') !!}</li>
 	            <li role="separator" class="divider"></li>
-						@endif
+			  @endrole
 	            <li>{!! link_to_route('admin.despatches.index', 'Despachos') !!}</li>
 	            <li><a href="#">Recaudación</a></li>
 	          </ul>
