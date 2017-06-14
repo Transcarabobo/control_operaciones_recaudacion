@@ -7,7 +7,8 @@
           <th>ID</th>
           <th>Nombre</th>
           <th>Correo</th>
-          <th>Acceso</th>
+          <th>Rol(es)</th>
+          <th>Estado</th>
           <th>Acción</th>
         </thead>
         <tbody>
@@ -17,12 +18,15 @@
               <td>{{ $user->name }}</td>
               <td>{{ $user->email }}</td>
               <td>
-                @if($user->access == "admin")
-                    <span class="label label-danger">{{ $user->access }}</span>
-                @elseif($user->access == "operaciones")
-                	<span class="label label-default">{{ $user->access }}</span>
+                @foreach($user->roles as $role)
+                   <span class="label label-default">{{ $role->name }}</span>
+                @endforeach
+              </td>
+              <td>
+                @if($user->active == 0)
+                    <span class="label label-danger">Inactivo</span>
                 @else
-                    <span class="label label-primary">{{ $user->access }}</span>
+                    <span class="label label-success">Activo</span>
                 @endif
               </td>
               <td>

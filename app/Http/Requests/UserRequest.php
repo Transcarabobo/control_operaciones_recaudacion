@@ -26,8 +26,8 @@ class UserRequest extends Request
         return [
             'name'      => 'min:4|max:128|string|required',
             'email'     => 'min:12|max:128|required|email|unique:users',
-            'password'  => 'min:8|max:32|alpha_dash|required',
-            'access'    => 'required'
+            'roles'     => 'required',
+            'active'    => 'required'
         ];
     }
 }
