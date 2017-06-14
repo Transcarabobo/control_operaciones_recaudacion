@@ -26,12 +26,16 @@
 				<li>{!! link_to_route('admin.users.index', 'Usuarios') !!}</li>
 				<li role="separator" class="divider"></li>
 	          @endrole
-	          @role('operations')
+	          @if(Auth::user()->can('read-operators'))
 	            <li>{!! link_to_route('admin.operators.index', 'Operadores') !!}</li>
+	          @endif
+	          @if(Auth::user()->can('read-vehicle'))
 	            <li>{!! link_to_route('admin.vehicles.index', 'Vehiculos') !!}</li>
+	          @endif
+	          @if(Auth::user()->can('read-route'))
 	            <li>{!! link_to_route('admin.routes.index', 'Rutas') !!}</li>
 	            <li role="separator" class="divider"></li>
-			  @endrole
+			  @endif
 	            <li>{!! link_to_route('admin.despatches.index', 'Despachos') !!}</li>
 	            <li><a href="#">Recaudación</a></li>
 	          </ul>

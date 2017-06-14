@@ -1,9 +1,9 @@
 @extends('admin.template.main')
 @section('title','Lista de Vehiculos')
 @section('content')
-  @can('create-vehicle')
+@if(Auth::user()->can('create-vehicle'))
     <a href="{{ route('admin.vehicles.create') }}" class="btn btn-info">Registrar nuevo vehiculo</a>
-  @endcan
+@endif
     <!-- BUSCADOR DE ARTICULOS -->
       {!! Form::open(['route' => 'admin.vehicles.index', 'method' => 'GET', 'class' => 'navbar-form pull-right']) !!}
       <div class="input-group">
@@ -54,9 +54,9 @@
               </td>
               <td>
                 <a href="{{ route('admin.vehicles.edit', $vehicle->id) }}" class="btn btn-warning"><span class="glyphicon glyphicon-wrench" aria-hidden="true"></span></a>
-                @can('create-vehicle')
+                @if(Auth::user()->can('delete-vehicle'))
                   <a href="{{ route('admin.vehicles.destroy', $vehicle->id) }}" onclick="return confirm('¿Seguro que desear eliminar el vehiculo {{ $vehicle->id }}?')" class="btn btn-danger"><span class="glyphicon glyphicon-remove-circle" aria-hidden="true"></span></a>
-                @endcan
+                @endif
               </td>
             </tr>
           @endforeach
