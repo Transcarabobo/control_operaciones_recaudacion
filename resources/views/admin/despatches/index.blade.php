@@ -1,9 +1,9 @@
 @extends('admin.template.main')
 @section('title','Listado de Despachos' )
 @section('content')
-    @if(Auth::user()->operaciones())
+    @can('create-despatch')
       <a href="{{ route('admin.despatches.create') }}" class="btn btn-info">Registrar nuevo Despacho</a>
-    @endif
+    @endcan
     <!-- BUSCADOR DE DESPACHOS POR FECHA -->
       {!! Form::open(['route' => 'admin.despatches.index', 'method' => 'GET', 'class' => 'navbar-form pull-right']) !!}
         <div class="input-group">
@@ -29,15 +29,17 @@
               <td>{{ $despatch->unidad_id }}</td>
               <td>{{ $despatch->date }}</td>
               <td>
-                @if(Auth::user()->operaciones())
+                @can('update-despatch')
                   <a href="{{ route('admin.despatches.edit', $despatch->id) }}" class="btn btn-warning"><span class="glyphicon glyphicon-wrench" aria-hidden="true"></span></a>
-                @endif
-                @if(Auth::user()->admin())
+                @endcan
+                @can('delete-despatch')
                   <a href="{{ route('admin.despatches.destroy', $despatch->id) }}" onclick="return confirm('¿Seguro que desear eliminar este despacho?')" class="btn btn-danger"><span class="glyphicon glyphicon-remove-circle" aria-hidden="true"></span></a>
-                @endif
-                @if($despatch->collection == null)
-                  <a href="{{ route('admin.collections.create', $despatch->id) }}" class="btn btn-primary"><span class="glyphicon glyphicon-usd" aria-hidden="true"></span></a>
-                @endif
+                @endcan
+                @can('create-collection')
+                  @if($despatch->collection == null)
+                    <a href="{{ route('admin.collections.create', $despatch->id) }}" class="btn btn-primary"><span class="glyphicon glyphicon-usd" aria-hidden="true"></span></a>
+                  @endif
+                @endcan
               </td>
             </tr>
           @endforeach
